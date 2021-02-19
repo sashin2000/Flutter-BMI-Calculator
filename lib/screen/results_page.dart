@@ -5,6 +5,12 @@ import '../constants.dart';
 import '../components/reusable_card.dart';
 
 class ResultsPage extends StatelessWidget {
+  ResultsPage({@required this.bmiResult, this.resultText, this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,24 +34,27 @@ class ResultsPage extends StatelessWidget {
             flex: 5,
             child: ResusableCard(
               colour: kInactiveCardColor,
-              cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Normal',
-                    style: kResultTextStyle,
-                  ),
-                  Text(
-                    '18.3',
-                    style: kBMITextStyle,
-                  ),
-                  Text(
-                    'Your BMI result is quite low, you should eat more!',
-                    style: kBodyTextStyle,
-                    textAlign: TextAlign.center,
-                  )
-                ],
+              cardChild: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      resultText.toUpperCase(),
+                      style: kResultTextStyle,
+                    ),
+                    Text(
+                      bmiResult.toUpperCase(),
+                      style: kBMITextStyle,
+                    ),
+                    Text(
+                      interpretation.toUpperCase(),
+                      style: kBodyTextStyle,
+                      textAlign: TextAlign.center,
+                    )
+                  ],
+                ),
               ),
             ),
           ),
