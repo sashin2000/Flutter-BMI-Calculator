@@ -1,4 +1,4 @@
-# bmi_calculator
+# Flutter-BMI-Calculator
 
 This is created by xmindsolutions
 
